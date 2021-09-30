@@ -31,3 +31,48 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTd
     "description": "Lorem ipsum",
     "stock": "10"
 }
+
+###
+GET http://localhost:5000/products
+Content-Type: application/json
+
+###
+GET http://localhost:5000/products/61561868922d0ecc49254d77
+Content-Type: application/json
+
+###
+DELETE http://localhost:5000/products/6156324cca5969804095c009
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+###
+POST http://localhost:5000/cart
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+{
+    "productId": "615634e22260280b3c600b7f",
+    "quantity": 1
+}
+
+###
+GET http://localhost:5000/cart
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+###
+DELETE http://localhost:5000/cart/61563685998fe36554e81abe
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+###
+PUT http://localhost:5000/cart/61563735e99a29568f1696e8
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+{
+    "quantity": 2
+}
+
+
+

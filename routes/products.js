@@ -22,7 +22,7 @@ router.patch('/:id', auth.authenticateToken, auth.isAdmin, getProduct, productCt
 //Deleting an existing element in the database
 router.delete('/:id', auth.authenticateToken, auth.isAdmin, getProduct, productCtrl.deleteProduct);
 
-//Middleware for getting the id of a recipe
+//Middleware for getting the id of a product
 async function getProduct(req, res, next) {
     let prd
     try{
