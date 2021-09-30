@@ -62,6 +62,7 @@ async function createProduct(req, res) {
             description: req.body.description,
             price: req.body.price,
             img: req.body.img,
+            stock: req.body.stock
         });
         try{
             const newProduct = await prd.save();
@@ -78,6 +79,7 @@ async function updateProduct(req, res) {
         prd.description = req.body.description;
         prd.price = req.body.price;
         prd.img = req.body.img;
+        prd.stock = req.body.stock;
         
         try{
             const newProduct = await prd.save();

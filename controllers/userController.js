@@ -85,6 +85,7 @@ async function createUser(req, res) {
         }
         //hash password
         const hash = await bcrypt.hash(req.body.password, 10);
+
         const user = await userModel.create({
             email: email.toLowerCase(),
             password: hash,
@@ -130,21 +131,26 @@ async function login(req, res){
                 message: 'Usuario o contraseña incorrectos'
             });
         }
+        console.log("id: ", user._id);
 
         //create token with 1 day expiration
         const token = jwt.sign({
-            id: user._id
+            id: user[0]._id,
+            email: user[0].email,
+            role: user[0].role
         }, process.env.JWT_SECRET, {
             expiresIn: '1d'
         });
         
         const loggedUser = {
-            ...user._doc,
+            ...user[0]._doc,
             token: token
         };
         
         //delete password from user
         delete loggedUser.password;
+
+        console.log("loggedUser: ", loggedUser);
 
         res.status(200).send(loggedUser);
     }

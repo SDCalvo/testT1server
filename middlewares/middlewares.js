@@ -22,13 +22,16 @@ function authenticateToken(req, res, next){
 }
 
 function isAdmin(req, res, next){
-    if(req.user.role != 'admin'){
+
+    if(req.user.role !== 'admin'){
         return res.status(401).send({
-            message: 'No estás autorizado para realizar esta acción.'
+            message: 'You are not authorized to access this resource'
         });
     }
     return next();
 }
+    
+
 
 // Export middleware
 exports.authenticateToken = authenticateToken;

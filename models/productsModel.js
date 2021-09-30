@@ -18,6 +18,10 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    stock:{
+        type: Number,
+        required: true
+    },
 
 } , { timestamps: true, autoCreate: true });
 

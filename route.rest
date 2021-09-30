@@ -18,3 +18,16 @@ Content-Type: application/json
     "email": "admin@admin.com",
     "password": "admin"
 }
+
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+{
+    "name": "Product 1",
+    "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F569098160981209852%2F&psig=AOvVaw3ZQZ_Z_Z_XZ_Z_Z_Z_Z_Z&ust=1589788240870000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDyP-x-4-gCFQAAAAAdAAAAABAD",
+    "price": "100",
+    "description": "Lorem ipsum",
+    "stock": "10"
+}
