@@ -13,7 +13,7 @@ router.get('/:id', auth.authenticateToken, userCtrl.getUserById);
 router.delete('/:id', auth.authenticateToken, auth.isAdmin, userCtrl.deleteUser);
 
 // create user
-router.post('/', auth.isAdmin, userCtrl.createUser);
+router.post('/', userCtrl.createUser);
 
 //login
 router.post('/login', userCtrl.login);
