@@ -22,6 +22,9 @@ app.use('/user', userRouter);
 const cartRouter = require('./routes/cart.js');
 app.use('/cart', cartRouter);
 
+const saleRouter = require('./routes/sales.js');
+app.use('/sales', saleRouter);
+
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server listening on port ${process.env.PORT || 3000}`);
 });

@@ -94,7 +94,7 @@ async function deleteProduct(req, res) {
     let prd = res.product;
     try{
         await prd.remove();
-        res.json({message: 'Producto eliminado'});
+        res.status(201).json({message: 'Producto eliminado'});
     }catch(err){
         res.status(500).json({message: err.message});
     }

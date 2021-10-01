@@ -91,7 +91,7 @@ async function createUser(req, res) {
             password: hash,
             name,
             lastName,
-            role
+            role,
         });
         res.json(user);
     }

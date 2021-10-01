@@ -71,8 +71,24 @@ Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
 
 {
-    "quantity": 2
+    "quantity": 3
 }
+
+###
+POST http://localhost:5000/sales
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
+
+{
+    "paymentMethod": "cash",
+    "address": "Calle falsa 123",
+    "observation": "Lorem ipsum"
+}
+
+###
+GET http://localhost:5000/sales
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTYwMmE3OTk2OTdiYWVlZTdlNDYwOCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDMyMTk4LCJleHAiOjE2MzMxMTg1OTh9.Y8dryHIwcENzJt7ltVDA44w9XPVQUnqJ7o_NNctK2MU
 
 
 
