@@ -86,9 +86,7 @@ async function getAllSales(req, res, next) {
     let response = null;
     try {
         const user = req.user;
-        console.log("userID: ", user.id);
         const foundSells = await sale.find({ user: mongoose.Types.ObjectId(user.id) }).select({'user':0});
-        console.log("foundSells: ", foundSells);
         for (let i = 0; i < foundSells.length; i++) {
             const sale = foundSells[i];
             const detail = await saleDetail.find({
