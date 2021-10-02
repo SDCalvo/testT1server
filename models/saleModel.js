@@ -16,7 +16,6 @@ const saleSchema = new mongoose.Schema(
         },
         observation: {
             type: String,
-            required: true
         },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     },
