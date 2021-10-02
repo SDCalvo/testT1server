@@ -41,7 +41,7 @@ async function deleteUser(req, res){
 //create a user 
 async function createUser(req, res) {
 
-    const { email, password, name, lastName, role } = req.body;
+    const { email, password, name, lastName } = req.body;
 
     if(!email) {
         return res.status(400).send({
@@ -63,17 +63,8 @@ async function createUser(req, res) {
             message: 'El campo apellido es requerido'
         });
     }
-    if(!role) {
-        return res.status(400).send({
-            message: 'El campo rol es requerido'
-        });
-    }
-    if(!role.includes('admin') && !role.includes('user')) {
-        return res.status(400).send({
-            message: 'Los valores válidos para el campo rol son admin o user'
-        });
-    }
-
+    
+    
     try{
         //make sure user doesn't already exist
         const oldUser = await userModel.find({ email: email });
@@ -91,7 +82,7 @@ async function createUser(req, res) {
             password: hash,
             name,
             lastName,
-            role,
+            role: 'user',
         });
         res.json(user);
     }
