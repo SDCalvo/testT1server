@@ -126,12 +126,16 @@ async function updateCart(req, res) {
         console.log("quantity: ", quantity);
         const cartDetail = await CartDetail.findById(cartDetailId);
         if (!cartDetail) {
-            throw new Error('El detalle del carrito no existe');
+            res.status(400).json({
+                message: 'El detalle del carrito no existe'
+            });
         }
 
         const product = await Product.findById(cartDetail.product);
         if (product.stock < quantity) {
-            throw new Error('No hay suficiente stock');
+            res.status(400).json({
+                message: 'No hay suficiente stock'
+            });
         }
 
         cartDetail.quantity = quantity;
