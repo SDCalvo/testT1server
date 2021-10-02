@@ -14,7 +14,7 @@ async function addSale(req, res, next) {
         } = req.body;
         const user = req.user;
 
-        if (!(paymentMethod && address && observation )) {
+        if (!(paymentMethod && address)) {
             throw new Error('Todos los campos son obligatorios.');
         }
 
