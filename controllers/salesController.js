@@ -45,15 +45,16 @@ async function addSale(req, res, next) {
             user: mongoose.Types.ObjectId(user.id),
         });
         await newSale.save();
-        
+        console.log("newSale: ", newSale);
         foundCartDetail.forEach( async (detail) => {
             const thisSaleDetail = new saleDetail({
                 quantity: detail.quantity,
                 price: detail.product.price,
-                sale: mongoose.Types.ObjectId(sale._id),
+                sale: mongoose.Types.ObjectId(newSale._id),
                 product: mongoose.Types.ObjectId(detail.product._id),
             });
             await thisSaleDetail.save();
+            console.log("thisSaleDetail: ", thisSaleDetail);
         });
 
         foundCartDetail.forEach(async (detail) => {
@@ -86,21 +87,25 @@ async function getAllSales(req, res, next) {
     let response = null;
     try {
         const user = req.user;
-        const foundSells = await sale.find({ user: mongoose.Types.ObjectId(user.id) }).select({'user':0});
+        const foundSells = await sale.find({ user: mongoose.Types.ObjectId(user.id) }).select({'user':0}).lean();
+        console.log("foundSells: ", foundSells);
+        const responseSells = [...foundSells];
+
         for (let i = 0; i < foundSells.length; i++) {
             const sale = foundSells[i];
-            const detail = await saleDetail.find({
-                sale: mongoose.Types.ObjectId(sale._id)
-            }).select({'sale':0, 'createdAt':0,'updatedAt':0}).populate('product', { 'name': 1 });
-            foundSells[i]['detail'] = detail;
+            const detail = await saleDetail.find({ sale: mongoose.Types.ObjectId(sale._id) }).populate('product',{price:1});
+            console.log("detail", detail);
+            responseSells[i]['detail'] = [...detail];
         }
 
         if (!foundSells) {
             throw new Error('No se encontraron ventas.');
         }
+        // console.log("foundSells: ", foundSells);
+        console.log("responseSells: ", responseSells);
         response = {
             message: 'Ventas encontradas.',
-            data: foundSells
+            data: responseSells
         };
         res.status(200).json(response);
     } catch (e) {

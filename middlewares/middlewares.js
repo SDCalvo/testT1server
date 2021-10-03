@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 function authenticateToken(req, res, next){
 
     var token = req.body.token || req.query.token || req.headers["x-access-token"];
-    console.log(token);
     if(!token){
         return res.status(401).send({
             message: 'Token is invalid'
@@ -22,7 +21,6 @@ function authenticateToken(req, res, next){
 }
 
 function isAdmin(req, res, next){
-    console.log(req.user);
     if(req.user.role !== 'admin'){
         return res.status(401).send({
             message: 'You are not authorized to access this resource'
