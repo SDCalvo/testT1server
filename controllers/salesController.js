@@ -93,7 +93,7 @@ async function getAllSales(req, res, next) {
 
         for (let i = 0; i < foundSells.length; i++) {
             const sale = foundSells[i];
-            const detail = await saleDetail.find({ sale: mongoose.Types.ObjectId(sale._id) }).populate('product',{price:1});
+            const detail = await saleDetail.find({ sale: mongoose.Types.ObjectId(sale._id) }).populate('product',{price:1, name:1}); 
             console.log("detail", detail);
             responseSells[i]['detail'] = [...detail];
         }
