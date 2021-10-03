@@ -7,9 +7,6 @@ const auth = require('../middlewares/middlewares');
 //Getting all the data from the database
 router.get('/', productCtrl.getAllProducts);
 
-// //Getting recipes from a search
-// router.get('/search', recipeCtrl.getRecipesBySearch);
-
 //Getting one element from the database
 router.get('/:id', getProduct, productCtrl.getOneProduct);
 
