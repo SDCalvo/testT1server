@@ -31,9 +31,7 @@ async function addSale(req, res, next) {
         }
 
         let total = 0.0;
-        console.log("foundCartDetail: ", foundCartDetail);
         foundCartDetail.forEach((detail) => {
-            console.log("detail", detail);
             total += detail.quantity * parseFloat(detail.product.price);
         });
 
@@ -45,7 +43,7 @@ async function addSale(req, res, next) {
             user: mongoose.Types.ObjectId(user.id),
         });
         await newSale.save();
-        console.log("newSale: ", newSale);
+
         foundCartDetail.forEach( async (detail) => {
             const thisSaleDetail = new saleDetail({
                 quantity: detail.quantity,
@@ -54,7 +52,6 @@ async function addSale(req, res, next) {
                 product: mongoose.Types.ObjectId(detail.product._id),
             });
             await thisSaleDetail.save();
-            console.log("thisSaleDetail: ", thisSaleDetail);
         });
 
         foundCartDetail.forEach(async (detail) => {
@@ -101,8 +98,6 @@ async function getAllSales(req, res, next) {
         if (!foundSells) {
             throw new Error('No se encontraron ventas.');
         }
-        // console.log("foundSells: ", foundSells);
-        console.log("responseSells: ", responseSells);
         response = {
             message: 'Ventas encontradas.',
             data: responseSells
