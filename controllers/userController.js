@@ -84,7 +84,11 @@ async function createUser(req, res) {
             lastName,
             role: 'user',
         });
-        res.json(user);
+
+        const res = {...user}
+        delete res.password;
+        
+        res.json(res);
     }
     catch(err){
         console.log("Error: ", err);
